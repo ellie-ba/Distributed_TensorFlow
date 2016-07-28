@@ -17,16 +17,17 @@ tf.app.flags.DEFINE_string("ps_hosts", "",
                            "Comma-separated list of hostname:port pairs")
 tf.app.flags.DEFINE_string("worker_hosts", "",
                            "Comma-separated list of hostname:port pairs")
+# Flags for defining the tf.train.Server
+tf.app.flags.DEFINE_string("job_name", "", "One of 'ps', 'worker'")
+tf.app.flags.DEFINE_integer("task_index", 0, "Index of task within the   job")
+
+# Flags for defining the model parameters
 tf.app.flags.DEFINE_integer("hidden_units", 100,
                             "Number of units in the hidden layer of the NN")
 tf.app.flags.DEFINE_integer("batch_size",128,"Training batchsize")
 tf.app.flags.DEFINE_integer("training_iter",10000, "Training iteration")
 tf.app.flags.DEFINE_float("learning_rate",0.001, "Learning rate")
 tf.app.flags.DEFINE_integer("display_step",100, "display step")
-
-# Flags for defining the tf.train.Server
-tf.app.flags.DEFINE_string("job_name", "", "One of 'ps', 'worker'")
-tf.app.flags.DEFINE_integer("task_index", 0, "Index of task within the   job")
 
 NUM_INPUT = 784
 NUM_CLASSES = 10
